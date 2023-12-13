@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Bangalore House Price</h1>
+    <form method="POST" accept-charset="Utf-8" action="/predict">
+        <div class="row">
+            <div class="col-md-6 form-control">
+                <label><b>Location</b></label>
+                <select class="selectpicker form-control"id="location"name="location" required="1">
+                    {% for location in locations %}
+                        <option value="{{ location }}">{{ location }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <br>
+            <div class="col-md-6 form-control">
+                <label><b>BHK :</b></label>
+                <input type="text" id="bhk"name="bhk" required="1">
+            </div>
+            <br>
+            <div class="col-md-6 form-control">
+                <label><b>BATH :</b></label>
+                <input type="text" id="bath" name="bath" required="1">
+            </div>
+            <br>
+            <div class="col-md-6 form-control">
+                <label><b>Total_sqft :</label>
+                <input type="text" id="total_sqft" name="total_sqft" required="1">
+            </div>
+            <br>
+            <div class="col-md-12 form-control">
+                <input type="submit" class="btn-info" value="predict">
+            </div>
+        </div>
+    </form>
+    {% if predict %}
+        <p>The Predicted Value is: {{ predict }}</p>
+    {% endif %}
+    
+
+    
+</body>
+</html>
